@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BaseService } from '../base.service';
 
 @Component({
   selector: 'app-bookings',
@@ -7,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class BookingsComponent {
 
+  bookings:any;
+
+
+  constructor(private baseService:BaseService){
+    this.baseService.getBookings().subscribe(
+      {
+        next: (response) => {
+          this.bookings = response
+        },
+        error: (err) => console.log(err)
+      }
+    )
+  }
 }
