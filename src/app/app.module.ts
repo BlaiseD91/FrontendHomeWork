@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import { BookingsComponent } from './bookings/bookings.component';
+import { NewBookingComponent } from './new-booking/new-booking.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    BookingsComponent
+    BookingsComponent,
+    NewBookingComponent
   ],
   imports: [
     BrowserModule,
