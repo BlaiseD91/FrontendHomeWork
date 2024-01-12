@@ -15,4 +15,13 @@ export class BaseService {
   getBookings(){
     return this.client.get(this.url)
   }
+
+  postBooking(booking:any){
+    this.client.post(this.url,booking).subscribe(
+      {
+        next:()=>this.getBookings(),
+        error:(err)=>console.log("Hiba a foglalás felvételénél: ",err)
+      }
+    )
+  }
 }

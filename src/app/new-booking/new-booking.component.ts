@@ -1,5 +1,7 @@
-import { DatePipe, JsonPipe } from '@angular/common';
-import { Component, ɵinternalCreateApplication } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { Component } from '@angular/core';
+import { BaseService } from '../base.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-booking',
@@ -21,7 +23,7 @@ export class NewBookingComponent {
   } 
 
 
-  constructor(private datePipe: DatePipe) {
+  constructor(private datePipe: DatePipe, private base:BaseService, private router: Router) {
     this.today = this.datePipe.transform(new Date(), 'yyyy-MM-dd')
     this.newBooking['datum'] = this.today
   }
@@ -31,13 +33,9 @@ export class NewBookingComponent {
       this.newBooking['iranyitoszam']!= "" && this.newBooking['nev']!="" && this.newBooking['datum']!=""){
         console.log(this.newBooking)
         // TODO console.log törlése
+        this.base.postBooking(this.newBooking)
         this.hiba = false
-        this.newBooking = {
-          cim: "",
-          datum: this.today,
-          fo: "2",
-          iranyitoszam: ""
-        }
+        this.router.navigate(['/foglalasok'])
     }
     else {
       this.hiba = true
