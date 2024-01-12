@@ -7,7 +7,6 @@ import { BaseService } from '../base.service';
   styleUrls: ['./bookings.component.css']
 })
 export class BookingsComponent {
-  //TODO még rendezni kell dátum szerint csökkenőbe
   bookings:any;
   tableHeaders = ["Dátum", "Név", "Fő", "Cím", "Iránytószám"]
 
