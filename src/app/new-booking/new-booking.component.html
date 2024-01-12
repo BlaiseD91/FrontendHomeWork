@@ -2,25 +2,26 @@
     <div class="row">
         <div class="mb-3 col-4">
             <label for="name" class="form-label">Név</label>
-            <input type="input" class="form-control" id="name">
+            <input type="input" class="form-control" id="name" placeholder="Mézga Géza">
         </div>
         <div class="mb-3 col-2">
           <label for="date" class="form-label">Dátum</label>
-          <input type="date" class="form-control" id="date">
+          <input type="date" class="form-control" id="date" value="">
         </div>
         <div class="mb-3 col-2">
             <label for="players" class="form-label">Játékosok száma</label>
-            <input type="number" class="form-control" id="players">
+            <input type="number" class="form-control" id="players" aria-describedby="playersHelp" min="2" max="16" value="2">
+            <div id="playersHelp" class="form-text">2-16 fő</div>
         </div>
     </div>
     <div class="row">
         <div class="mb-3 col-1">
             <label for="zipcode" class="form-label">Irányítószám</label>
-            <input type="input" class="form-control" id="zipcode">
+            <input type="input" class="form-control" id="zipcode" placeholder="1111">
         </div>
         <div class="mb-3 col-11">
             <label for="address" class="form-label">Cím</label>
-            <input type="input" class="form-control" id="address">
+            <input type="input" class="form-control" id="address" placeholder="Példaváros, Minta út 4.">
         </div>
     </div>
     <button type="submit" class="btn btn-success">Foglal</button>
