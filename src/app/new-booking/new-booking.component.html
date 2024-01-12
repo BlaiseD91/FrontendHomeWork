@@ -1,28 +1,29 @@
-<form>
-    <div class="row">
-        <div class="mb-3 col-4">
-            <label for="name" class="form-label fw-bold">Név</label>
-            <input type="text" class="form-control border-dark" id="name" placeholder="Mézga Géza" required>
-        </div>
-        <div class="mb-3 col-2">
-          <label for="date" class="form-label fw-bold">Dátum</label>
-          <input type="date" class="form-control border-dark" id="date" [value]="date" [min]="date" required>
-        </div>
-        <div class="mb-3 col-2">
-            <label for="players" class="form-label fw-bold">Játékosok száma</label>
-            <input type="number" class="form-control border-dark" id="players" aria-describedby="playersHelp" min="2" max="16" value="2" required>
-            <div id="playersHelp" class="form-text">2-16 fő</div>
-        </div>
+<ng-container *ngIf="hiba==true">
+<div class="row bg-danger"><h1>HIBA a beviteli mezőkben, amíg nem javítod, nem mentheted a foglalást!</h1></div>
+</ng-container>
+<div class="d-flex">
+    <div class="mb-3 me-2">
+        <label for="nev" class="form-label fw-bold">Név</label>
+        <input [(ngModel)]="newBooking['nev']" type="text" class="form-control border-dark" id="nev" placeholder="Mézga Géza">
     </div>
-    <div class="row">
-        <div class="mb-3 col-1">
-            <label for="zipcode" class="form-label fw-bold">Irányítószám</label>
-            <input type="text" class="form-control border-dark" id="zipcode" placeholder="1111" required>
-        </div>
-        <div class="mb-3 col-11">
-            <label for="address" class="form-label fw-bold">Cím</label>
-            <input type="text" class="form-control border-dark" id="address" placeholder="Példaváros, Minta út 4." required>
-        </div>
+    <div class="mb-3 me-2">
+        <label for="datum" class="form-label fw-bold">Dátum</label>
+        <input [(ngModel)]="newBooking['datum']" type="date" class="form-control border-dark" id="datum" [min]="newBooking['datum']">
     </div>
-    <button type="submit" class="btn btn-outline-success">Foglal</button>
-  </form>
+    <div class="mb-3">
+        <label for="fo" class="form-label fw-bold">Játékosok száma</label>
+        <input [(ngModel)]="newBooking['fo']" type="number" class="form-control border-dark" id="fo" aria-describedby="playersHelp" [value]="newBooking['fo']">
+        <div id="playersHelp" class="form-text">2-16 fő</div>
+    </div>
+</div>
+<div class="d-flex">
+    <div class="mb-3 me-5 col-2">
+        <label for="iranyitoszam" class="form-label fw-bold">Irányítószám</label>
+        <input [(ngModel)]="newBooking['iranyitoszam']" type="text" class="form-control border-dark" id="iranyitoszam" placeholder="1111">
+    </div>
+    <div class="mb-3 col-8">
+        <label for="cim" class="form-label fw-bold">Cím</label>
+        <input [(ngModel)]="newBooking['cim']" type="text" class="form-control border-dark" id="cim" placeholder="Példaváros, Minta út 4.">
+    </div>
+</div>
+<button (click)="postBooking()" type="button" class="btn btn-outline-success">Foglal</button>
