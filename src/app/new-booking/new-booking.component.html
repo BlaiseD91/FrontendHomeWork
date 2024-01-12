@@ -1,6 +1,9 @@
 <ng-container *ngIf="hiba==true">
 <div class="row bg-danger"><h1>HIBA a beviteli mezőkben, amíg nem javítod, nem mentheted a foglalást!</h1></div>
 </ng-container>
+<ng-container *ngIf="siker==true">
+<div class="row bg-success"><h1>Sikeresen rögzítetted a foglalást, most átirányítunk a foglalásokhoz!</h1></div>
+</ng-container>
 <div class="d-flex">
     <div class="mb-3 me-2">
         <label for="nev" class="form-label fw-bold">Név</label>

@@ -13,6 +13,7 @@ export class NewBookingComponent {
 
   today:any
   hiba = false
+  siker = false
 
   newBooking:any = {
     cim: "",
@@ -35,10 +36,13 @@ export class NewBookingComponent {
         // TODO console.log törlése
         this.base.postBooking(this.newBooking)
         this.hiba = false
-        this.router.navigate(['/foglalasok'])
+        this.siker = true
+        setTimeout(() => this.router.navigate(['/foglalasok']), 3000);
+        
     }
     else {
       this.hiba = true
+      this.siker = false
       console.log("HIBA")
       // TODO console.log törlése
     }
