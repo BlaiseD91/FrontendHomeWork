@@ -23,7 +23,6 @@ export class NewBookingComponent {
     nev: ""
   } 
 
-
   constructor(private datePipe: DatePipe, private base:BaseService, private router: Router) {
     this.today = this.datePipe.transform(new Date(), 'yyyy-MM-dd')
     this.newBooking['datum'] = this.today
@@ -32,19 +31,15 @@ export class NewBookingComponent {
   postBooking(){
     if(this.newBooking['cim']!="" && this.newBooking['fo']>=2 && this.newBooking['fo']<=16 &&
       this.newBooking['iranyitoszam']!= "" && this.newBooking['nev']!="" && this.newBooking['datum']!=""){
-        console.log(this.newBooking)
-        // TODO console.log törlése
         this.base.postBooking(this.newBooking)
         this.hiba = false
         this.siker = true
-        setTimeout(() => this.router.navigate(['/foglalasok']), 3000);
-        
+        setTimeout(() => this.router.navigate(['/foglalasok']), 3000);  
     }
     else {
       this.hiba = true
       this.siker = false
-      console.log("HIBA")
-      // TODO console.log törlése
+      console.log("HIBA: nem megfelelőek az adatok!")
     }
   }
 }

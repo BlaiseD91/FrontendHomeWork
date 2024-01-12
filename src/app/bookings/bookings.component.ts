@@ -17,9 +17,8 @@ export class BookingsComponent {
         next: (res) => {
           this.bookings = res
         },
-        error: (err) => console.log(err)
+        error: (err) => console.log("Az adatok betöltése sikertelen", err)
       }
     )
   }
-  // TODO hibakezelés
 }
